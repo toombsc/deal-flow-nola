@@ -435,7 +435,7 @@ export default function App() {
     setFlowMode("outcome");
   };
 
-  const endMonth = () => { if (!state || state.actionsLeft > 0 || gameOver || lossState) return; setState(nextMonth(state)); setNegotiationDealId(null); setFlowMode("dashboard"); };
+  const endMonth = () => { if (!state || gameOver || lossState) return; setState(nextMonth(state)); setNegotiationDealId(null); setFlowMode("dashboard"); setOutcomeData(null); };
   
   const safeReset = () => { setStarted(false); setState(null); setActiveTab("actions"); setTermPopup(null); setNegotiationDealId(null); setNegotiationChoices(defaultNegotiationState()); setFlowMode("dashboard"); setOutcomeData(null); };
 
