@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Briefcase,
   Building2,
@@ -378,8 +378,8 @@ button, select, input { font: inherit; }
 .negotiation-card { border: 2px solid ${BRAND.red}; }
 .summary-card { border: 2px solid ${BRAND.teal}; }
 .loss-card { border: 2px solid ${BRAND.red}; }
-.tooltip-wrap { position: relative; display: inline-flex; }
-.tooltip-box { position: absolute; top: calc(100% + 8px); left: 0; z-index: 20; width: 280px; background: ${BRAND.white}; border: 1px solid ${BRAND.silver}; border-radius: 14px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.tooltip-wrap { position: relative; display: inline-flex; overflow: visible; }
+.tooltip-box { position: absolute; top: calc(100% + 8px); left: 0; z-index: 999; width: 280px; background: ${BRAND.white}; border: 1px solid ${BRAND.silver}; border-radius: 14px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
 @media (max-width: 1100px) { .hero-grid, .content-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 720px) { .stats-grid, .two-grid, .button-grid, .detail-grid, .summary-grid, .tabs-wrap { grid-template-columns: 1fr; } .row-between { flex-direction: column; } .text-4xl { font-size: 30px; } .tooltip-box { width: 240px; } }
 `;
@@ -616,14 +616,38 @@ function Stat({ label, value, icon: Icon, money = false }) {
 
 function TooltipIcon({ termKey }) {
   const [open, setOpen] = useState(false);
+  const wrapRef = useRef(null);
   const term = NEGOTIATION_TERMS[termKey];
+
+  useEffect(() => {
+    function handlePointerDown(event) {
+      if (!wrapRef.current) return;
+      if (!wrapRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+    };
+  }, []);
+
   return (
-    <div className="tooltip-wrap" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }} type="button" aria-label={`Explain ${term.title}`}>
+    <div className="tooltip-wrap" ref={wrapRef}>
+      <button
+        className="btn btn-outline"
+        style={{ padding: 8, width: 36, height: 36 }}
+        type="button"
+        aria-label={`Explain ${term.title}`}
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
         <CircleHelp size={16} />
       </button>
       {open && (
-        <div className="tooltip-box">
+        <div className="tooltip-box" role="dialog" aria-label={term.title}>
           <div className="font-semibold" style={{ color: BRAND.gulf, marginBottom: 6 }}>{term.title}</div>
           <div className="text-xs text-muted">{term.text}</div>
         </div>
