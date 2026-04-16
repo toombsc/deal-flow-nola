@@ -767,7 +767,38 @@ function Stat({ label, value, icon: Icon, money = false }) {
   );
 }
 
-function IconButton({ onClick }) {
+function ({ key }) => (
+  <div
+    onMouseEnter={() => setHoverTerm(key)}
+    onMouseLeave={() => setHoverTerm(null)}
+    style={{ position: 'relative', display: 'inline-flex' }}
+  >
+    <button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }}>
+      <CircleHelp size={16} />
+    </button>
+    {hoverTerm === key && (
+      <div style={{
+        position: 'absolute',
+        top: '120%',
+        left: 0,
+        zIndex: 10,
+        width: 260,
+        background: BRAND.white,
+        border: `1px solid ${BRAND.silver}`,
+        borderRadius: 12,
+        padding: 10,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+      }}>
+        <div style={{ fontWeight: 600, color: BRAND.gulf, marginBottom: 4 }}>
+          {NEGOTIATION_TERMS[key].title}
+        </div>
+        <div style={{ fontSize: 12, color: BRAND.grey }}>
+          {NEGOTIATION_TERMS[key].text}
+        </div>
+      </div>
+    )}
+  </div>
+) {
   return (
     <button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }} onClick={onClick}>
       <CircleHelp size={16} />
@@ -780,7 +811,7 @@ export default function App() {
   const [started, setStarted] = useState(false);
   const [state, setState] = useState(null);
   const [activeTab, setActiveTab] = useState("actions");
-  const [termPopup, setTermPopup] = useState(null);
+  const [hoverTerm, setHoverTerm] = useState(null);
   const [negotiationDealId, setNegotiationDealId] = useState(null);
   const [negotiationChoices, setNegotiationChoices] = useState(defaultNegotiationState());
 
@@ -788,7 +819,7 @@ export default function App() {
     setState(buildEmptyState(pathChoice));
     setStarted(true);
     setNegotiationDealId(null);
-    setTermPopup(null);
+    setHoverTerm(null);
     setNegotiationChoices(defaultNegotiationState());
   };
 
@@ -985,7 +1016,7 @@ export default function App() {
     setStarted(false);
     setState(null);
     setActiveTab("actions");
-    setTermPopup(null);
+    setHoverTerm(null);
     setNegotiationDealId(null);
     setNegotiationChoices(defaultNegotiationState());
   };
@@ -1157,7 +1188,7 @@ export default function App() {
                   <div className="text-sm" style={{ color: BRAND.teal }}>Bonus: {concept.bonus}</div>
                 </div>
                 <div className="row-wrap">
-                  <button className="btn btn-outline" onClick={() => setTermPopup({ name: concept.name, description: concept.description, bonus: concept.bonus })}>details</button>
+                  <button className="btn btn-outline" onClick={() => setHoverTerm({ name: concept.name, description: concept.description, bonus: concept.bonus })}>details</button>
                   <button className={`btn ${learned ? "btn-muted" : "btn-primary"}`} disabled={learned || state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => learnConcept(concept)}>
                     {learned ? "completed" : concept.cost === 0 ? "learn" : `learn for ${formatMoney(concept.cost)}`}
                   </button>
@@ -1363,7 +1394,7 @@ export default function App() {
                             <span className="font-semibold" style={{ color: BRAND.gulf }}>{label}</span>
                             <IconButton
                               onClick={() =>
-                                setTermPopup({
+                                setHoverTerm({
                                   name: NEGOTIATION_TERMS[key].title,
                                   description: NEGOTIATION_TERMS[key].text,
                                   bonus: "Use this concept to make smarter tradeoffs in negotiations.",
@@ -1402,14 +1433,14 @@ export default function App() {
                 </div>
               )}
 
-              {termPopup && (
+              {hoverTerm && (
                 <div className="card card-pad term-card">
-                  <div className="heading-serif section-title">{termPopup.name}</div>
+                  <div className="heading-serif section-title">{hoverTerm.name}</div>
                   <div className="stack-md mt-3 text-sm text-muted">
-                    <div>{termPopup.description}</div>
-                    <div style={{ color: BRAND.teal }}>{termPopup.bonus}</div>
+                    <div>{hoverTerm.description}</div>
+                    <div style={{ color: BRAND.teal }}>{hoverTerm.bonus}</div>
                     <div>
-                      <button className="btn btn-outline" onClick={() => setTermPopup(null)}>close</button>
+                      <button className="btn btn-outline" onClick={() => setHoverTerm(null)}>close</button>
                     </div>
                   </div>
                 </div>
