@@ -375,6 +375,21 @@ function closeDeal(state, deal, negotiationScore = 0) {
   return { ...state, cash: state.cash + income, reputation: clamp(state.reputation + 4, 0, 100), network: clamp(state.network + 2, 0, 100), totalCredit: state.totalCredit + credit, annualIncome: state.annualIncome + income, dealsClosed: [...state.dealsClosed, { ...deal, income, credit, monthClosed: state.month }], leads: state.leads.filter((d) => d.id !== deal.id), creditByClass, awardsTracker, log: [`Deal closed: ${deal.type} in ${deal.path} (${deal.submarket}) for ${formatMoney(deal.value)}. Your credit: ${formatMoney(credit)}. Estimated income earned: ${formatMoney(income)}.`, ...state.log].slice(0, 60) };
 }
 
+function nextMonth(state) {
+  const month = state.month + 1;
+  const marketEvent = randomFrom(MARKET_EVENTS);
+  const marketMultiplier = Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, marketEvent.effect[k] || 1]));
+  const agedLeads = state.leads.map((deal) => ({ ...deal, monthsActive: deal.monthsActive + 1, difficulty: deal.difficulty + 2 }));
+  const leads = agedLeads.filter((d) => d.monthsActive < 4);
+  const expired = agedLeads.length - leads.length;
+  const log = [...state.log];
+  if (expired > 0) {
+    log.unshift(`${expired} stale lead${expired > 1 ? "s" : ""} fell apart after too much delay. Commercial real estate remains committed to the bit.`);
+  }
+  log.unshift(`Month ${month} begins. Market shift: ${marketEvent.name}. ${marketEvent.text}`);
+  return { ...state, month, actionsLeft: 2, marketMultiplier, leads, log: log.slice(0, 60) };
+}
+
 function ProgressBar({ value, color = BRAND.red }) { const clamped = clamp(value, 0, 100); return <div className="progress-track"><div className="progress-fill" style={{ width: `${clamped}%`, backgroundColor: color }} /></div>; }
 function Stat({ label, value, icon: Icon, money = false }) { return <div className="stat-card"><div className="row align-center text-sm text-muted"><Icon size={16} color={BRAND.teal} /><span>{label}</span></div><div className="mt-2 text-xl font-semibold" style={{ color: BRAND.gulf }}>{money ? formatMoney(value) : value}</div></div>; }
 function TooltipIcon({ termKey }) { const [open, setOpen] = useState(false); const term = NEGOTIATION_TERMS[termKey]; return <div className="tooltip-wrap"><button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }} type="button" onClick={() => setOpen((v) => !v)}><CircleHelp size={16} /></button>{open && <div className="tooltip-box"><div className="font-semibold" style={{ color: BRAND.gulf, marginBottom: 6 }}>{term.title}</div><div className="text-xs text-muted">{term.text}</div></div>}</div>; }
