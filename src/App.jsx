@@ -27,6 +27,8 @@ const BRAND = {
   amber: "#B26A00",
 };
 
+const UNLOCK_DEALS_REQUIRED = 15;
+
 const SPECIALIZATIONS = {
   Retail: {
     icon: Building2,
@@ -287,28 +289,43 @@ function defaultNegotiationState() { return { rent: 50, ti: 50, cam: 50, termLen
 function reactionForScore(score) { if (score >= 18) return { label: "strong", color: BRAND.green, text: "They are leaning in. The structure feels workable." }; if (score >= 2) return { label: "mixed", color: BRAND.amber, text: "Some issues are aligned, but this is still fragile." }; return { label: "fragile", color: BRAND.red, text: "The deal is wobbling. You are pushing too hard somewhere." }; }
 
 function buildEmptyState(pathName) {
-  return { month: 1, path: pathName, cash: SPECIALIZATIONS[pathName].cash, reputation: SPECIALIZATIONS[pathName].reputation, network: SPECIALIZATIONS[pathName].network, knowledge: SPECIALIZATIONS[pathName].knowledge, totalCredit: 0, annualIncome: 0, actionsLeft: 2, cidMember: false, subsidyUsed: false, scholarshipUsed: false, designations: [], learned: { asset_classes: true }, leads: [], dealsClosed: [], log: [...START_LOG], marketMultiplier: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 1])), creditByClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 0])), awardsTracker: { byClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, { totalCredit: 0, bestSale: 0, bestLease: 0 }])) } };
+  return { month: 1, path: selectedPath, primarySpecialization: pathName, unlockedSpecializations: [pathName], cash: SPECIALIZATIONS[pathName].cash, reputation: SPECIALIZATIONS[pathName].reputation, network: SPECIALIZATIONS[pathName].network, knowledge: SPECIALIZATIONS[pathName].knowledge, totalCredit: 0, annualIncome: 0, actionsLeft: 2, cidMember: false, subsidyUsed: false, scholarshipUsed: false, designations: [], learned: { asset_classes: true }, leads: [], dealsClosed: [], log: [...START_LOG], marketMultiplier: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 1])), creditByClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 0])), closedDealsByClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 0])), awardsTracker: { byClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, { totalCredit: 0, bestSale: 0, bestLease: 0 }])) } };
+}
+
+function chooseLeadPath(state) {
+  const paths = Object.keys(SPECIALIZATIONS);
+  const primary = state.primarySpecialization || state.path;
+  const unlocked = new Set(state.unlockedSpecializations || [primary]);
+  const bag = [];
+  paths.forEach((assetPath) => {
+    let weight = 1;
+    if (assetPath === primary) weight = 5;
+    else if (unlocked.has(assetPath)) weight = 3;
+    for (let i = 0; i < weight; i += 1) bag.push(assetPath);
+  });
+  return randomFrom(bag);
 }
 
 function createLead(pathName, state) {
-  const spec = SPECIALIZATIONS[pathName];
-  const market = state.marketMultiplier[pathName] ?? 1;
+  const selectedPath = pathName || chooseLeadPath(state);
+  const spec = SPECIALIZATIONS[selectedPath];
+  const market = state.marketMultiplier[selectedPath] ?? 1;
   const isLease = Math.random() < spec.leasingBias;
   const base = spec.avgDeal;
   const knowledgeFactor = 1 + state.knowledge / 200;
   const networkFactor = 1 + state.network / 250;
   const variance = 0.7 + Math.random() * 0.9;
   const value = Math.round(base * variance * market * knowledgeFactor * networkFactor);
-  const client = randomFrom(CLIENT_TYPES[pathName]);
+  const client = randomFrom(CLIENT_TYPES[selectedPath]);
   const side = Math.random() < 0.5 ? "listing/landlord" : "buyer/tenant";
   const coBrokered = Math.random() < 0.55;
   const yourShare = coBrokered ? 0.5 : 1;
-  const submarket = randomFrom(SUBMARKETS[pathName]);
+  const submarket = randomFrom(SUBMARKETS[selectedPath]);
   const personality = randomFrom(PERSONALITIES);
   let difficulty = isLease ? 48 : 52;
-  if (pathName === "Land") difficulty += 6;
-  if (pathName === "Industrial") difficulty += 4;
-  if (pathName === "Multifamily") difficulty += 3;
+  if (selectedPath === "Land") difficulty += 6;
+  if (selectedPath === "Industrial") difficulty += 4;
+  if (selectedPath === "Multifamily") difficulty += 3;
   const profile = {
     rent: { target: 55 + Math.floor(Math.random() * 25), flexibility: 10 + Math.floor(Math.random() * 8), weight: isLease ? 4 : 2 },
     ti: { target: isLease ? 45 + Math.floor(Math.random() * 30) : 50, flexibility: 10 + Math.floor(Math.random() * 8), weight: isLease ? 3 : 1 },
@@ -317,11 +334,13 @@ function createLead(pathName, state) {
     timeline: { target: 40 + Math.floor(Math.random() * 35), flexibility: 8 + Math.floor(Math.random() * 8), weight: 2 },
     contingencies: { target: 40 + Math.floor(Math.random() * 35), flexibility: 10 + Math.floor(Math.random() * 8), weight: 3 },
   };
-  return { id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, client, path: pathName, submarket, type: isLease ? "Lease" : "Sale", value, creditValue: Math.round(value * yourShare), coBrokered, yourShare, difficulty, side, monthsActive: 0, summary: `${client} needs help on a ${isLease ? "lease" : "sale"} in ${pathName.toLowerCase()} in ${submarket}.`, negotiationProfile: profile, negotiationState: defaultNegotiationState(), personality, urgency: 1 + Math.floor(Math.random() * 3) };
+  return { id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, client, path: pathName, submarket, type: isLease ? "Lease" : "Sale", value, creditValue: Math.round(value * yourShare), coBrokered, yourShare, difficulty, side, monthsActive: 0, summary: `${client} needs help on a ${isLease ? "lease" : "sale"} in ${selectedPath.toLowerCase()} in ${submarket}.`, negotiationProfile: profile, negotiationState: defaultNegotiationState(), personality, urgency: 1 + Math.floor(Math.random() * 3) };
 }
 
 function successChanceForDeal(deal, state) {
   let chance = 35;
+  if (deal.path === (state.primarySpecialization || state.path)) chance += 12;
+  else if ((state.unlockedSpecializations || []).includes(deal.path)) chance += 6;
   chance += state.reputation * 0.8 + state.network * 0.35 + state.knowledge * 0.7;
   chance -= deal.difficulty;
   if (state.learned.asset_classes) chance += 5;
@@ -371,8 +390,12 @@ function closeDeal(state, deal, negotiationScore = 0) {
   const income = Math.round(grossCommission * 0.35 * deal.yourShare);
   const credit = deal.creditValue;
   const creditByClass = { ...state.creditByClass, [deal.path]: (state.creditByClass[deal.path] || 0) + credit };
+  const closedDealsByClass = { ...state.closedDealsByClass, [deal.path]: (state.closedDealsByClass[deal.path] || 0) + 1 };
+  const unlockedSpecializations = [...(state.unlockedSpecializations || [state.primarySpecialization || state.path])];
+  const newlyUnlocked = !unlockedSpecializations.includes(deal.path) && closedDealsByClass[deal.path] >= UNLOCK_DEALS_REQUIRED;
+  if (newlyUnlocked) unlockedSpecializations.push(deal.path);
   const awardsTracker = { ...state.awardsTracker, byClass: { ...state.awardsTracker.byClass, [deal.path]: { totalCredit: (state.awardsTracker.byClass[deal.path]?.totalCredit || 0) + credit, bestSale: deal.type === "Sale" ? Math.max(state.awardsTracker.byClass[deal.path]?.bestSale || 0, credit) : state.awardsTracker.byClass[deal.path]?.bestSale || 0, bestLease: deal.type === "Lease" ? Math.max(state.awardsTracker.byClass[deal.path]?.bestLease || 0, credit) : state.awardsTracker.byClass[deal.path]?.bestLease || 0 } } };
-  return { ...state, cash: state.cash + income, reputation: clamp(state.reputation + 4, 0, 100), network: clamp(state.network + 2, 0, 100), totalCredit: state.totalCredit + credit, annualIncome: state.annualIncome + income, dealsClosed: [...state.dealsClosed, { ...deal, income, credit, monthClosed: state.month }], leads: state.leads.filter((d) => d.id !== deal.id), creditByClass, awardsTracker, log: [`Deal closed: ${deal.type} in ${deal.path} (${deal.submarket}) for ${formatMoney(deal.value)}. Your credit: ${formatMoney(credit)}. Estimated income earned: ${formatMoney(income)}.`, ...state.log].slice(0, 60) };
+  return { ...state, cash: state.cash + income, reputation: clamp(state.reputation + 4, 0, 100), network: clamp(state.network + 2, 0, 100), totalCredit: state.totalCredit + credit, annualIncome: state.annualIncome + income, dealsClosed: [...state.dealsClosed, { ...deal, income, credit, monthClosed: state.month }], leads: state.leads.filter((d) => d.id !== deal.id), creditByClass, closedDealsByClass, unlockedSpecializations, awardsTracker, log: [`${newlyUnlocked ? `New specialization unlocked: ${deal.path}. ` : ""}Deal closed: ${deal.type} in ${deal.path} (${deal.submarket}) for ${formatMoney(deal.value)}. Your credit: ${formatMoney(credit)}. Estimated income earned: ${formatMoney(income)}.`, ...state.log].slice(0, 60) };
 }
 
 function nextMonth(state) {
@@ -416,8 +439,8 @@ export default function App() {
   const liveChance = activeNegotiation ? clamp(successChanceForDeal(activeNegotiation, state) + liveNegotiation.score + 8, 5, 98) : 0;
 
   const useAction = (updater) => { if (!state || gameOver || lossState || state.actionsLeft <= 0) return; const next = updater(state); setState({ ...next, actionsLeft: next.actionsLeft - 1 }); };
-  const doProspect = () => useAction((s) => { const lead = createLead(s.path, s); return { ...s, leads: [lead, ...s.leads].slice(0, 12), network: clamp(s.network + 2, 0, 100), reputation: clamp(s.reputation + 1, 0, 100), log: [`New lead found: ${lead.summary} Potential credit: ${formatMoney(lead.creditValue)}.`, ...s.log].slice(0, 60) }; });
-  const doNetwork = () => useAction((s) => { const event = randomFrom(NETWORK_EVENTS); const bonusLead = Math.random() < 0.45 ? createLead(s.path, s) : null; return { ...s, network: clamp(s.network + (event.network || 0), 0, 100), reputation: clamp(s.reputation + (event.reputation || 0), 0, 100), knowledge: clamp(s.knowledge + (event.knowledge || 0), 0, 100), leads: bonusLead ? [bonusLead, ...s.leads].slice(0, 12) : s.leads, log: [`${event.name}: ${event.text}${bonusLead ? ` You also picked up a new lead worth roughly ${formatMoney(bonusLead.creditValue)} in credit.` : ""}`, ...s.log].slice(0, 60) }; });
+  const doProspect = () => useAction((s) => { const lead = createLead(null, s); return { ...s, leads: [lead, ...s.leads].slice(0, 12), network: clamp(s.network + 2, 0, 100), reputation: clamp(s.reputation + 1, 0, 100), log: [`New lead found: ${lead.summary} Potential credit: ${formatMoney(lead.creditValue)}.`, ...s.log].slice(0, 60) }; });
+  const doNetwork = () => useAction((s) => { const event = randomFrom(NETWORK_EVENTS); const bonusLead = Math.random() < 0.45 ? createLead(null, s) : null; return { ...s, network: clamp(s.network + (event.network || 0), 0, 100), reputation: clamp(s.reputation + (event.reputation || 0), 0, 100), knowledge: clamp(s.knowledge + (event.knowledge || 0), 0, 100), leads: bonusLead ? [bonusLead, ...s.leads].slice(0, 12) : s.leads, log: [`${event.name}: ${event.text}${bonusLead ? ` You also picked up a new lead worth roughly ${formatMoney(bonusLead.creditValue)} in credit.` : ""}`, ...s.log].slice(0, 60) }; });
   const joinCID = () => useAction((s) => s.cidMember ? s : { ...s, cidMember: true, reputation: clamp(s.reputation + 5, 0, 100), network: clamp(s.network + 6, 0, 100), log: ["You joined CID. You now have access to CID-only networking plus an education subsidy option and a scholarship option for designation costs.", ...s.log].slice(0, 60) });
   const applySubsidy = () => useAction((s) => (!s.cidMember || s.subsidyUsed) ? s : { ...s, cash: s.cash + 150, subsidyUsed: true, log: ["CID education subsidy approved: +$150 toward your professional development budget.", ...s.log].slice(0, 60) });
   const applyScholarship = () => useAction((s) => { if (!s.cidMember || s.scholarshipUsed) return s; const chance = clamp(35 + s.reputation / 2 + s.knowledge / 3, 20, 90); const roll = Math.floor(Math.random() * 100) + 1; if (roll > chance) return { ...s, scholarshipUsed: true, log: [`CID scholarship application declined this cycle. Your odds were ${chance}%.`, ...s.log].slice(0, 60) }; return { ...s, cash: s.cash + 1500, scholarshipUsed: true, log: ["CID scholarship awarded: +$1,500 added to your budget for designation pursuit.", ...s.log].slice(0, 60) }; });
@@ -466,7 +489,7 @@ export default function App() {
 
   const renderDashboard = () => (
     <div className="container stack-lg">
-      <div className="card card-pad"><div className="row-between align-center"><div><div className="kicker">CID career simulator</div><h1 className="heading-serif text-4xl font-semibold" style={{ color: BRAND.gulf, margin: "8px 0 0 0" }}>Deal Flow: New Orleans Commercial Real Estate</h1><p className="mt-2 text-muted">Month {Math.min(state.month, 12)} of 12 • Path: <span className="text-strong">{state.path}</span> • Actions left this month: <span className="text-strong">{Math.max(state.actionsLeft, 0)}</span></p></div><div className="row-wrap">{awardTier ? <span className="badge badge-red">CID Achievement Tier: {awardTier}</span> : <span className="badge badge-silver">CID Awards eligibility locked</span>}<button className="btn btn-outline" onClick={safeReset}>new game</button></div></div></div>
+      <div className="card card-pad"><div className="row-between align-center"><div><div className="kicker">CID career simulator</div><h1 className="heading-serif text-4xl font-semibold" style={{ color: BRAND.gulf, margin: "8px 0 0 0" }}>Deal Flow: New Orleans Commercial Real Estate</h1><p className="mt-2 text-muted">Month {Math.min(state.month, 12)} of 12 • Primary specialization: <span className="text-strong">{state.primarySpecialization || state.path}</span> • Actions left this month: <span className="text-strong">{Math.max(state.actionsLeft, 0)}</span></p></div><div className="row-wrap">{awardTier ? <span className="badge badge-red">CID Achievement Tier: {awardTier}</span> : <span className="badge badge-silver">CID Awards eligibility locked</span>}<button className="btn btn-outline" onClick={safeReset}>new game</button></div></div></div>
       <div className="stats-grid"><Stat label="Cash" value={state.cash} icon={DollarSign} money /><Stat label="Annual income" value={state.annualIncome} icon={DollarSign} money /><Stat label="Annual credit volume" value={state.totalCredit} icon={Trophy} money /><Stat label="Reputation" value={state.reputation} icon={Users} /><Stat label="Knowledge" value={state.knowledge} icon={GraduationCap} /></div>
       <div className="content-grid">
         <div className="stack-lg">
