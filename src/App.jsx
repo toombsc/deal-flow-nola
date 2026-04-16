@@ -318,104 +318,38 @@ body { background: linear-gradient(180deg, ${BRAND.gulf} 0%, ${BRAND.paper} 18%,
 button, select, input { font: inherit; }
 .app-shell { min-height: 100vh; padding: 24px; }
 .container { max-width: 1280px; margin: 0 auto; }
-.card {
-  background: ${BRAND.white};
-  border: 1px solid ${BRAND.silver};
-  border-radius: 28px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06);
-}
+.card { background: ${BRAND.white}; border: 1px solid ${BRAND.silver}; border-radius: 28px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
 .card-pad { padding: 24px; }
 .card-pad-lg { padding: 32px; }
 .heading-serif { font-family: Georgia, "Times New Roman", serif; }
-.kicker {
-  display: inline-flex;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  background: ${BRAND.teal};
-  color: ${BRAND.white};
-}
-.hero-grid, .content-grid, .stats-grid, .detail-grid, .button-grid, .tab-grid, .summary-grid { display: grid; gap: 24px; }
+.kicker { display: inline-flex; border-radius: 999px; padding: 6px 12px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; background: ${BRAND.teal}; color: ${BRAND.white}; }
+.hero-grid, .content-grid, .stats-grid, .detail-grid, .button-grid, .summary-grid { display: grid; gap: 24px; }
 .hero-grid { grid-template-columns: 1.1fr .9fr; }
 .content-grid { grid-template-columns: 1.05fr .95fr; }
 .stats-grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
 .two-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
 .button-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.tab-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
 .summary-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .detail-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .section-title { font-size: 1.35rem; font-weight: 600; letter-spacing: .01em; color: ${BRAND.gulf}; }
-.btn {
-  border-radius: 18px;
-  border: 1px solid transparent;
-  padding: 12px 16px;
-  cursor: pointer;
-  font-weight: 600;
-}
+.btn { border-radius: 18px; border: 1px solid transparent; padding: 12px 16px; cursor: pointer; font-weight: 600; }
 .btn:disabled { opacity: .55; cursor: not-allowed; }
 .btn-primary { background: ${BRAND.red}; color: ${BRAND.white}; border-color: ${BRAND.red}; }
 .btn-secondary { background: ${BRAND.gulf}; color: ${BRAND.white}; border-color: ${BRAND.gulf}; }
 .btn-teal { background: ${BRAND.teal}; color: ${BRAND.white}; border-color: ${BRAND.teal}; }
 .btn-outline { background: ${BRAND.white}; color: ${BRAND.gulf}; border-color: ${BRAND.gulf}; }
 .btn-muted { background: ${BRAND.silver}; color: ${BRAND.gulf}; border-color: ${BRAND.silver}; }
-.icon-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  background: ${BRAND.red};
-  color: ${BRAND.white};
-}
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 600;
-}
+.icon-pill { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 999px; background: ${BRAND.red}; color: ${BRAND.white}; }
+.badge { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600; }
 .badge-red { background: ${BRAND.red}; color: ${BRAND.white}; }
 .badge-teal { background: ${BRAND.teal}; color: ${BRAND.white}; }
 .badge-silver { background: ${BRAND.silver}; color: ${BRAND.gulf}; }
-.subtle-box {
-  border: 1px solid ${BRAND.silver};
-  border-radius: 22px;
-  background: ${BRAND.paper};
-  padding: 16px;
-}
-.stat-card {
-  border: 1px solid ${BRAND.silver};
-  border-radius: 24px;
-  background: ${BRAND.white};
-  padding: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06);
-}
+.subtle-box { border: 1px solid ${BRAND.silver}; border-radius: 22px; background: ${BRAND.paper}; padding: 16px; }
+.stat-card { border: 1px solid ${BRAND.silver}; border-radius: 24px; background: ${BRAND.white}; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
 .progress-track { margin-top: 12px; height: 8px; border-radius: 999px; background: ${BRAND.silver}; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 999px; }
-.tabs-wrap {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-  background: ${BRAND.white};
-  border: 1px solid ${BRAND.silver};
-  border-radius: 22px;
-  padding: 6px;
-}
-.tab-btn {
-  border: none;
-  background: transparent;
-  color: ${BRAND.gulf};
-  border-radius: 16px;
-  padding: 10px 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
+.tabs-wrap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; background: ${BRAND.white}; border: 1px solid ${BRAND.silver}; border-radius: 22px; padding: 6px; }
+.tab-btn { border: none; background: transparent; color: ${BRAND.gulf}; border-radius: 16px; padding: 10px 12px; font-weight: 600; cursor: pointer; }
 .tab-btn.active { background: ${BRAND.gulf}; color: ${BRAND.white}; }
 .panel-stack > * + * { margin-top: 12px; }
 .scroll-box { max-height: 320px; overflow: auto; padding-right: 8px; }
@@ -442,18 +376,12 @@ button, select, input { font: inherit; }
 .font-semibold { font-weight: 600; }
 .font-bold { font-weight: 700; }
 .negotiation-card { border: 2px solid ${BRAND.red}; }
-.term-card { border: 2px solid ${BRAND.teal}; }
 .summary-card { border: 2px solid ${BRAND.teal}; }
 .loss-card { border: 2px solid ${BRAND.red}; }
-@media (max-width: 1100px) {
-  .hero-grid, .content-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 720px) {
-  .stats-grid, .two-grid, .button-grid, .detail-grid, .summary-grid, .tab-grid, .tabs-wrap { grid-template-columns: 1fr; }
-  .row-between { flex-direction: column; }
-  .text-4xl { font-size: 30px; }
-}
+.tooltip-wrap { position: relative; display: inline-flex; }
+.tooltip-box { position: absolute; top: calc(100% + 8px); left: 0; z-index: 20; width: 280px; background: ${BRAND.white}; border: 1px solid ${BRAND.silver}; border-radius: 14px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+@media (max-width: 1100px) { .hero-grid, .content-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .stats-grid, .two-grid, .button-grid, .detail-grid, .summary-grid, .tabs-wrap { grid-template-columns: 1fr; } .row-between { flex-direction: column; } .text-4xl { font-size: 30px; } .tooltip-box { width: 240px; } }
 `;
 
 function randomFrom(arr) {
@@ -482,14 +410,7 @@ function getAwardTier(credit) {
 }
 
 function defaultNegotiationState() {
-  return {
-    rent: 50,
-    ti: 50,
-    cam: 50,
-    termLength: 50,
-    timeline: 50,
-    contingencies: 50,
-  };
+  return { rent: 50, ti: 50, cam: 50, termLength: 50, timeline: 50, contingencies: 50 };
 }
 
 function buildEmptyState(pathName) {
@@ -514,9 +435,7 @@ function buildEmptyState(pathName) {
     marketMultiplier: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 1])),
     creditByClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, 0])),
     awardsTracker: {
-      byClass: Object.fromEntries(
-        Object.keys(SPECIALIZATIONS).map((k) => [k, { totalCredit: 0, bestSale: 0, bestLease: 0 }]),
-      ),
+      byClass: Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, { totalCredit: 0, bestSale: 0, bestLease: 0 }])),
     },
   };
 }
@@ -530,18 +449,15 @@ function createLead(pathName, state) {
   const networkFactor = 1 + state.network / 250;
   const variance = 0.7 + Math.random() * 0.9;
   const value = Math.round(base * variance * market * knowledgeFactor * networkFactor);
-
   const client = randomFrom(CLIENT_TYPES[pathName]);
   const side = Math.random() < 0.5 ? "listing/landlord" : "buyer/tenant";
   const coBrokered = Math.random() < 0.55;
   const yourShare = coBrokered ? 0.5 : 1;
   const submarket = randomFrom(SUBMARKETS[pathName]);
-
   let difficulty = isLease ? 48 : 52;
   if (pathName === "Land") difficulty += 6;
   if (pathName === "Industrial") difficulty += 4;
   if (pathName === "Multifamily") difficulty += 3;
-
   const profile = {
     rent: { target: 55 + Math.floor(Math.random() * 25), flexibility: 10 + Math.floor(Math.random() * 8), weight: isLease ? 4 : 2 },
     ti: { target: isLease ? 45 + Math.floor(Math.random() * 30) : 50, flexibility: 10 + Math.floor(Math.random() * 8), weight: isLease ? 3 : 1 },
@@ -550,7 +466,6 @@ function createLead(pathName, state) {
     timeline: { target: 40 + Math.floor(Math.random() * 35), flexibility: 8 + Math.floor(Math.random() * 8), weight: 2 },
     contingencies: { target: 40 + Math.floor(Math.random() * 35), flexibility: 10 + Math.floor(Math.random() * 8), weight: 3 },
   };
-
   return {
     id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
     client,
@@ -576,14 +491,12 @@ function successChanceForDeal(deal, state) {
   chance += state.network * 0.35;
   chance += state.knowledge * 0.7;
   chance -= deal.difficulty;
-
   if (state.learned.asset_classes) chance += 5;
   if (state.learned.nnn && ["Retail", "Office"].includes(deal.path) && deal.type === "Lease") chance += 8;
   if (state.learned.noi && ["Retail", "Office", "Special Purpose", "Multifamily"].includes(deal.path) && deal.type === "Sale") chance += 7;
   if (state.learned.cap_rate && ["Retail", "Office", "Special Purpose", "Multifamily"].includes(deal.path)) chance += 6;
   if (state.learned.ti_cam && ["Retail", "Office", "Industrial"].includes(deal.path) && deal.type === "Lease") chance += 6;
   if (state.learned.flood_zoning && ["Land", "Special Purpose"].includes(deal.path)) chance += 7;
-
   state.designations.forEach((d) => {
     chance += 5;
     if (d === "SIOR" && ["Office", "Industrial"].includes(deal.path)) chance += 8;
@@ -591,19 +504,16 @@ function successChanceForDeal(deal, state) {
     if (d === "CPM" && ["Retail", "Office", "Special Purpose", "Multifamily"].includes(deal.path)) chance += 6;
     if (d === "CCIM") chance += 6;
   });
-
   return clamp(Math.round(chance), 10, 95);
 }
 
 function calculateNegotiationOutcome(deal, state, choices) {
   let score = 0;
   const notes = [];
-
   Object.entries(deal.negotiationProfile).forEach(([key, config]) => {
     const chosen = choices[key] ?? 50;
     const diff = Math.abs(chosen - config.target);
     const tolerance = config.flexibility;
-
     if (diff <= tolerance) {
       score += 4 * config.weight;
       notes.push(`${NEGOTIATION_TERMS[key].title}: well aligned`);
@@ -618,13 +528,11 @@ function calculateNegotiationOutcome(deal, state, choices) {
       notes.push(`${NEGOTIATION_TERMS[key].title}: major obstacle`);
     }
   });
-
   if (state.learned.nnn && deal.type === "Lease" && ["Retail", "Office"].includes(deal.path)) score += 5;
   if (state.learned.ti_cam && deal.type === "Lease") score += 6;
   if (state.learned.noi && deal.type === "Sale") score += 4;
   if (state.learned.cap_rate && ["Retail", "Office", "Special Purpose", "Multifamily"].includes(deal.path)) score += 4;
   if (state.learned.flood_zoning && ["Land", "Special Purpose"].includes(deal.path)) score += 4;
-
   return { score, notes };
 }
 
@@ -632,51 +540,31 @@ function closeDeal(state, deal, negotiationScore = 0) {
   const chance = clamp(successChanceForDeal(deal, state) + negotiationScore, 5, 98);
   const roll = Math.floor(Math.random() * 100) + 1;
   const win = roll <= chance;
-
   if (!win) {
     return {
       ...state,
       leads: state.leads.filter((d) => d.id !== deal.id),
       reputation: clamp(state.reputation + 1, 0, 100),
-      log: [
-        `Deal lost: ${deal.client} went another direction on the ${deal.type.toLowerCase()} in ${deal.submarket}. That will happen. Frequently.`,
-        ...state.log,
-      ].slice(0, 60),
+      log: [`Deal lost: ${deal.client} went another direction on the ${deal.type.toLowerCase()} in ${deal.submarket}. That will happen. Frequently.`, ...state.log].slice(0, 60),
     };
   }
-
   const grossRate = deal.type === "Sale" ? 0.03 : 0.04;
-  const incomeBoost = state.designations.reduce((acc, d) => {
-    const item = DESIGNATIONS[d];
-    return acc + (item ? item.incomeBoost : 0);
-  }, 0);
+  const incomeBoost = state.designations.reduce((acc, d) => acc + (DESIGNATIONS[d] ? DESIGNATIONS[d].incomeBoost : 0), 0);
   const grossCommission = deal.value * grossRate * (1 + incomeBoost);
   const income = Math.round(grossCommission * 0.35 * deal.yourShare);
   const credit = deal.creditValue;
-
-  const creditByClass = {
-    ...state.creditByClass,
-    [deal.path]: (state.creditByClass[deal.path] || 0) + credit,
-  };
-
+  const creditByClass = { ...state.creditByClass, [deal.path]: (state.creditByClass[deal.path] || 0) + credit };
   const awardsTracker = {
     ...state.awardsTracker,
     byClass: {
       ...state.awardsTracker.byClass,
       [deal.path]: {
         totalCredit: (state.awardsTracker.byClass[deal.path]?.totalCredit || 0) + credit,
-        bestSale:
-          deal.type === "Sale"
-            ? Math.max(state.awardsTracker.byClass[deal.path]?.bestSale || 0, credit)
-            : state.awardsTracker.byClass[deal.path]?.bestSale || 0,
-        bestLease:
-          deal.type === "Lease"
-            ? Math.max(state.awardsTracker.byClass[deal.path]?.bestLease || 0, credit)
-            : state.awardsTracker.byClass[deal.path]?.bestLease || 0,
+        bestSale: deal.type === "Sale" ? Math.max(state.awardsTracker.byClass[deal.path]?.bestSale || 0, credit) : state.awardsTracker.byClass[deal.path]?.bestSale || 0,
+        bestLease: deal.type === "Lease" ? Math.max(state.awardsTracker.byClass[deal.path]?.bestLease || 0, credit) : state.awardsTracker.byClass[deal.path]?.bestLease || 0,
       },
     },
   };
-
   return {
     ...state,
     cash: state.cash + income,
@@ -688,61 +576,22 @@ function closeDeal(state, deal, negotiationScore = 0) {
     leads: state.leads.filter((d) => d.id !== deal.id),
     creditByClass,
     awardsTracker,
-    log: [
-      `Deal closed: ${deal.type} in ${deal.path} (${deal.submarket}) for ${formatMoney(deal.value)}. Your credit: ${formatMoney(credit)}. Estimated income earned: ${formatMoney(income)}.`,
-      ...state.log,
-    ].slice(0, 60),
+    log: [`Deal closed: ${deal.type} in ${deal.path} (${deal.submarket}) for ${formatMoney(deal.value)}. Your credit: ${formatMoney(credit)}. Estimated income earned: ${formatMoney(income)}.`, ...state.log].slice(0, 60),
   };
 }
 
 function nextMonth(state) {
   const month = state.month + 1;
   const marketEvent = randomFrom(MARKET_EVENTS);
-  const marketMultiplier = Object.fromEntries(
-    Object.keys(SPECIALIZATIONS).map((k) => [k, marketEvent.effect[k] || 1]),
-  );
-
-  const agedLeads = state.leads.map((deal) => ({
-    ...deal,
-    monthsActive: deal.monthsActive + 1,
-    difficulty: deal.difficulty + 2,
-  }));
+  const marketMultiplier = Object.fromEntries(Object.keys(SPECIALIZATIONS).map((k) => [k, marketEvent.effect[k] || 1]));
+  const agedLeads = state.leads.map((deal) => ({ ...deal, monthsActive: deal.monthsActive + 1, difficulty: deal.difficulty + 2 }));
   const leads = agedLeads.filter((d) => d.monthsActive < 4);
   const expired = agedLeads.length - leads.length;
   const log = [...state.log];
-
-  if (expired > 0) {
-    log.unshift(`${expired} stale lead${expired > 1 ? "s" : ""} fell apart after too much delay. Commercial real estate remains committed to the bit.`);
-  }
+  if (expired > 0) log.unshift(`${expired} stale lead${expired > 1 ? "s" : ""} fell apart after too much delay. Commercial real estate remains committed to the bit.`);
   log.unshift(`Month ${month} begins. Market shift: ${marketEvent.name}. ${marketEvent.text}`);
-
-  return {
-    ...state,
-    month,
-    actionsLeft: 2,
-    marketMultiplier,
-    leads,
-    log: log.slice(0, 60),
-  };
+  return { ...state, month, actionsLeft: 2, marketMultiplier, leads, log: log.slice(0, 60) };
 }
-
-function runSanityChecks() {
-  const checks = [
-    () => defaultNegotiationState().rent === 50,
-    () => getAwardTier(2000000) === "Bronze",
-    () => getAwardTier(15000000) === "Diamond",
-    () => clamp(120, 0, 100) === 100,
-    () => clamp(-10, 0, 100) === 0,
-    () => formatMoney(1000).includes("1,000"),
-  ];
-
-  const failed = checks.findIndex((fn) => !fn());
-  if (failed !== -1) {
-    throw new Error(`Sanity check failed at index ${failed}`);
-  }
-}
-
-runSanityChecks();
 
 function ProgressBar({ value, color = BRAND.red }) {
   const clamped = clamp(value, 0, 100);
@@ -760,49 +609,26 @@ function Stat({ label, value, icon: Icon, money = false }) {
         <Icon size={16} color={BRAND.teal} />
         <span>{label}</span>
       </div>
-      <div className="mt-2 text-xl font-semibold" style={{ color: BRAND.gulf }}>
-        {money ? formatMoney(value) : value}
-      </div>
+      <div className="mt-2 text-xl font-semibold" style={{ color: BRAND.gulf }}>{money ? formatMoney(value) : value}</div>
     </div>
   );
 }
 
-function ({ key }) => (
-  <div
-    onMouseEnter={() => setHoverTerm(key)}
-    onMouseLeave={() => setHoverTerm(null)}
-    style={{ position: 'relative', display: 'inline-flex' }}
-  >
-    <button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }}>
-      <CircleHelp size={16} />
-    </button>
-    {hoverTerm === key && (
-      <div style={{
-        position: 'absolute',
-        top: '120%',
-        left: 0,
-        zIndex: 10,
-        width: 260,
-        background: BRAND.white,
-        border: `1px solid ${BRAND.silver}`,
-        borderRadius: 12,
-        padding: 10,
-        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-      }}>
-        <div style={{ fontWeight: 600, color: BRAND.gulf, marginBottom: 4 }}>
-          {NEGOTIATION_TERMS[key].title}
-        </div>
-        <div style={{ fontSize: 12, color: BRAND.grey }}>
-          {NEGOTIATION_TERMS[key].text}
-        </div>
-      </div>
-    )}
-  </div>
-) {
+function TooltipIcon({ termKey }) {
+  const [open, setOpen] = useState(false);
+  const term = NEGOTIATION_TERMS[termKey];
   return (
-    <button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }} onClick={onClick}>
-      <CircleHelp size={16} />
-    </button>
+    <div className="tooltip-wrap" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button className="btn btn-outline" style={{ padding: 8, width: 36, height: 36 }} type="button" aria-label={`Explain ${term.title}`}>
+        <CircleHelp size={16} />
+      </button>
+      {open && (
+        <div className="tooltip-box">
+          <div className="font-semibold" style={{ color: BRAND.gulf, marginBottom: 6 }}>{term.title}</div>
+          <div className="text-xs text-muted">{term.text}</div>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -811,7 +637,7 @@ export default function App() {
   const [started, setStarted] = useState(false);
   const [state, setState] = useState(null);
   const [activeTab, setActiveTab] = useState("actions");
-  const [hoverTerm, setHoverTerm] = useState(null);
+  const [termPopup, setTermPopup] = useState(null);
   const [negotiationDealId, setNegotiationDealId] = useState(null);
   const [negotiationChoices, setNegotiationChoices] = useState(defaultNegotiationState());
 
@@ -819,26 +645,17 @@ export default function App() {
     setState(buildEmptyState(pathChoice));
     setStarted(true);
     setNegotiationDealId(null);
-    setHoverTerm(null);
+    setTermPopup(null);
     setNegotiationChoices(defaultNegotiationState());
   };
 
   const awardTier = useMemo(() => (state ? getAwardTier(state.totalCredit) : null), [state]);
   const gameOver = state ? state.month > 12 : false;
-  const lossState = state
-    ? state.cash <= 0 && state.dealsClosed.length === 0 && state.month >= 6
-      ? "You ran out of cash before building a viable business."
-      : null
-    : null;
+  const lossState = state ? (state.cash <= 0 && state.dealsClosed.length === 0 && state.month >= 6 ? "You ran out of cash before building a viable business." : null) : null;
   const activeNegotiation = state ? state.leads.find((d) => d.id === negotiationDealId) || null : null;
   const awardSummary = useMemo(() => {
     if (!state) return [];
-    return Object.entries(state.awardsTracker.byClass).map(([asset, data]) => ({
-      asset,
-      agentOfYear: data.totalCredit,
-      saleOfYear: data.bestSale,
-      leaseOfYear: data.bestLease,
-    }));
+    return Object.entries(state.awardsTracker.byClass).map(([asset, data]) => ({ asset, agentOfYear: data.totalCredit, saleOfYear: data.bestSale, leaseOfYear: data.bestLease }));
   }, [state]);
 
   const useAction = (updater) => {
@@ -847,128 +664,51 @@ export default function App() {
     setState({ ...next, actionsLeft: next.actionsLeft - 1 });
   };
 
-  const doProspect = () => {
-    useAction((s) => {
-      const lead = createLead(s.path, s);
-      return {
-        ...s,
-        leads: [lead, ...s.leads].slice(0, 12),
-        network: clamp(s.network + 2, 0, 100),
-        reputation: clamp(s.reputation + 1, 0, 100),
-        log: [`New lead found: ${lead.summary} Potential credit: ${formatMoney(lead.creditValue)}.`, ...s.log].slice(0, 60),
-      };
-    });
-  };
+  const doProspect = () => useAction((s) => {
+    const lead = createLead(s.path, s);
+    return { ...s, leads: [lead, ...s.leads].slice(0, 12), network: clamp(s.network + 2, 0, 100), reputation: clamp(s.reputation + 1, 0, 100), log: [`New lead found: ${lead.summary} Potential credit: ${formatMoney(lead.creditValue)}.`, ...s.log].slice(0, 60) };
+  });
 
-  const doNetwork = () => {
-    useAction((s) => {
-      const event = randomFrom(NETWORK_EVENTS);
-      const bonusLead = Math.random() < 0.45 ? createLead(s.path, s) : null;
-      return {
-        ...s,
-        network: clamp(s.network + (event.network || 0), 0, 100),
-        reputation: clamp(s.reputation + (event.reputation || 0), 0, 100),
-        knowledge: clamp(s.knowledge + (event.knowledge || 0), 0, 100),
-        leads: bonusLead ? [bonusLead, ...s.leads].slice(0, 12) : s.leads,
-        log: [
-          `${event.name}: ${event.text}${bonusLead ? ` You also picked up a new lead worth roughly ${formatMoney(bonusLead.creditValue)} in credit.` : ""}`,
-          ...s.log,
-        ].slice(0, 60),
-      };
-    });
-  };
+  const doNetwork = () => useAction((s) => {
+    const event = randomFrom(NETWORK_EVENTS);
+    const bonusLead = Math.random() < 0.45 ? createLead(s.path, s) : null;
+    return {
+      ...s,
+      network: clamp(s.network + (event.network || 0), 0, 100),
+      reputation: clamp(s.reputation + (event.reputation || 0), 0, 100),
+      knowledge: clamp(s.knowledge + (event.knowledge || 0), 0, 100),
+      leads: bonusLead ? [bonusLead, ...s.leads].slice(0, 12) : s.leads,
+      log: [`${event.name}: ${event.text}${bonusLead ? ` You also picked up a new lead worth roughly ${formatMoney(bonusLead.creditValue)} in credit.` : ""}`, ...s.log].slice(0, 60),
+    };
+  });
 
-  const joinCID = () => {
-    useAction((s) => {
-      if (s.cidMember) return s;
-      return {
-        ...s,
-        cidMember: true,
-        reputation: clamp(s.reputation + 5, 0, 100),
-        network: clamp(s.network + 6, 0, 100),
-        log: [
-          "You joined CID. You now have access to CID-only networking plus an education subsidy option and a scholarship option for designation costs.",
-          ...s.log,
-        ].slice(0, 60),
-      };
-    });
-  };
+  const joinCID = () => useAction((s) => s.cidMember ? s : { ...s, cidMember: true, reputation: clamp(s.reputation + 5, 0, 100), network: clamp(s.network + 6, 0, 100), log: ["You joined CID. You now have access to CID-only networking plus an education subsidy option and a scholarship option for designation costs.", ...s.log].slice(0, 60) });
 
-  const applySubsidy = () => {
-    useAction((s) => {
-      if (!s.cidMember || s.subsidyUsed) return s;
-      return {
-        ...s,
-        cash: s.cash + 150,
-        subsidyUsed: true,
-        log: ["CID education subsidy approved: +$150 toward your professional development budget.", ...s.log].slice(0, 60),
-      };
-    });
-  };
+  const applySubsidy = () => useAction((s) => (!s.cidMember || s.subsidyUsed) ? s : { ...s, cash: s.cash + 150, subsidyUsed: true, log: ["CID education subsidy approved: +$150 toward your professional development budget.", ...s.log].slice(0, 60) });
 
-  const applyScholarship = () => {
-    useAction((s) => {
-      if (!s.cidMember || s.scholarshipUsed) return s;
-      const chance = clamp(35 + s.reputation / 2 + s.knowledge / 3, 20, 90);
-      const roll = Math.floor(Math.random() * 100) + 1;
-      if (roll > chance) {
-        return {
-          ...s,
-          scholarshipUsed: true,
-          log: [`CID scholarship application declined this cycle. Your odds were ${chance}%.`, ...s.log].slice(0, 60),
-        };
-      }
-      return {
-        ...s,
-        cash: s.cash + 1500,
-        scholarshipUsed: true,
-        log: ["CID scholarship awarded: +$1,500 added to your budget for designation pursuit.", ...s.log].slice(0, 60),
-      };
-    });
-  };
+  const applyScholarship = () => useAction((s) => {
+    if (!s.cidMember || s.scholarshipUsed) return s;
+    const chance = clamp(35 + s.reputation / 2 + s.knowledge / 3, 20, 90);
+    const roll = Math.floor(Math.random() * 100) + 1;
+    if (roll > chance) return { ...s, scholarshipUsed: true, log: [`CID scholarship application declined this cycle. Your odds were ${chance}%.`, ...s.log].slice(0, 60) };
+    return { ...s, cash: s.cash + 1500, scholarshipUsed: true, log: ["CID scholarship awarded: +$1,500 added to your budget for designation pursuit.", ...s.log].slice(0, 60) };
+  });
 
-  const learnConcept = (concept) => {
-    useAction((s) => {
-      if (s.learned[concept.key]) return s;
-      if (s.cash < concept.cost) {
-        return {
-          ...s,
-          log: [`Not enough cash to study ${concept.name}. Knowledge is noble. Invoices remain undefeated.`, ...s.log].slice(0, 60),
-        };
-      }
-      return {
-        ...s,
-        cash: s.cash - concept.cost,
-        knowledge: clamp(s.knowledge + concept.knowledge, 0, 100),
-        learned: { ...s.learned, [concept.key]: true },
-        log: [`Concept learned: ${concept.name}. ${concept.bonus}`, ...s.log].slice(0, 60),
-      };
-    });
-  };
+  const learnConcept = (concept) => useAction((s) => {
+    if (s.learned[concept.key]) return s;
+    if (s.cash < concept.cost) return { ...s, log: [`Not enough cash to study ${concept.name}. Knowledge is noble. Invoices remain undefeated.`, ...s.log].slice(0, 60) };
+    return { ...s, cash: s.cash - concept.cost, knowledge: clamp(s.knowledge + concept.knowledge, 0, 100), learned: { ...s.learned, [concept.key]: true }, log: [`Concept learned: ${concept.name}. ${concept.bonus}`, ...s.log].slice(0, 60) };
+  });
 
-  const buyDesignation = (name) => {
-    useAction((s) => {
-      const allowed = SPECIALIZATIONS[s.path].designationOptions.includes(name);
-      if (!allowed || s.designations.includes(name)) return s;
-      const d = DESIGNATIONS[name];
-      if (!d) return s;
-      if (s.cash < d.cost) {
-        return { ...s, log: [`You cannot afford ${name} yet. Professional prestige remains on layaway.`, ...s.log].slice(0, 60) };
-      }
-      if (s.knowledge < 30 && name !== "CCIM") {
-        return { ...s, log: [`You need more market knowledge before pursuing ${name}.`, ...s.log].slice(0, 60) };
-      }
-      return {
-        ...s,
-        cash: s.cash - d.cost,
-        knowledge: clamp(s.knowledge + d.knowledge, 0, 100),
-        reputation: clamp(s.reputation + d.reputation, 0, 100),
-        network: clamp(s.network + d.network, 0, 100),
-        designations: [...s.designations, name],
-        log: [`Designation earned: ${name}. ${d.description}`, ...s.log].slice(0, 60),
-      };
-    });
-  };
+  const buyDesignation = (name) => useAction((s) => {
+    const allowed = SPECIALIZATIONS[s.path].designationOptions.includes(name);
+    if (!allowed || s.designations.includes(name)) return s;
+    const d = DESIGNATIONS[name];
+    if (!d) return s;
+    if (s.cash < d.cost) return { ...s, log: [`You cannot afford ${name} yet. Professional prestige remains on layaway.`, ...s.log].slice(0, 60) };
+    if (s.knowledge < 30 && name !== "CCIM") return { ...s, log: [`You need more market knowledge before pursuing ${name}.`, ...s.log].slice(0, 60) };
+    return { ...s, cash: s.cash - d.cost, knowledge: clamp(s.knowledge + d.knowledge, 0, 100), reputation: clamp(s.reputation + d.reputation, 0, 100), network: clamp(s.network + d.network, 0, 100), designations: [...s.designations, name], log: [`Designation earned: ${name}. ${d.description}`, ...s.log].slice(0, 60) };
+  });
 
   const workLead = (deal) => {
     if (!state || state.actionsLeft <= 0 || gameOver || lossState) return;
@@ -978,31 +718,16 @@ export default function App() {
 
   const resolveNegotiation = (style) => {
     if (!activeNegotiation || !state || state.actionsLeft <= 0) return;
-
     const styleMods = {
       aggressive: { score: 4, rep: -1, text: "You pushed hard on economics and timing." },
       balanced: { score: 8, rep: 1, text: "You balanced economics, relationship, and structure." },
       conservative: { score: 2, rep: 2, text: "You protected trust, but gave up a bit of leverage." },
     };
-
     const mod = styleMods[style];
     const negotiation = calculateNegotiationOutcome(activeNegotiation, state, negotiationChoices);
     const updatedLead = { ...activeNegotiation, negotiationState: { ...negotiationChoices } };
-    const result = closeDeal(
-      { ...state, reputation: clamp(state.reputation + mod.rep, 0, 100) },
-      updatedLead,
-      mod.score + negotiation.score,
-    );
-
-    setState({
-      ...result,
-      actionsLeft: result.actionsLeft - 1,
-      log: [
-        `Negotiation approach: ${style}. ${mod.text}`,
-        `Negotiation issues: ${negotiation.notes.join(" • ")}.`,
-        ...result.log,
-      ].slice(0, 60),
-    });
+    const result = closeDeal({ ...state, reputation: clamp(state.reputation + mod.rep, 0, 100) }, updatedLead, mod.score + negotiation.score);
+    setState({ ...result, actionsLeft: result.actionsLeft - 1, log: [`Negotiation approach: ${style}. ${mod.text}`, `Negotiation issues: ${negotiation.notes.join(" • ")}.`, ...result.log].slice(0, 60) });
     setNegotiationDealId(null);
   };
 
@@ -1016,7 +741,7 @@ export default function App() {
     setStarted(false);
     setState(null);
     setActiveTab("actions");
-    setHoverTerm(null);
+    setTermPopup(null);
     setNegotiationDealId(null);
     setNegotiationChoices(defaultNegotiationState());
   };
@@ -1029,54 +754,32 @@ export default function App() {
           <div>
             <div className="kicker">commercial investment division</div>
             <h1 className="heading-serif text-4xl font-semibold" style={{ color: BRAND.gulf, margin: "8px 0 0 0" }}>Deal Flow</h1>
-            <p className="mt-2" style={{ maxWidth: 780, color: BRAND.grey }}>
-              A CID-branded career sim for new agents. Pick a specialization, learn commercial real estate concepts,
-              negotiate sales and leases, build annual credit volume, and chase CID Awards eligibility.
-            </p>
+            <p className="mt-2" style={{ maxWidth: 780, color: BRAND.grey }}>A CID-branded career sim for new agents. Pick a specialization, learn commercial real estate concepts, negotiate sales and leases, build annual credit volume, and chase CID Awards eligibility.</p>
           </div>
         </div>
       </div>
-
       <div className="hero-grid">
         <div className="card card-pad">
           <div className="heading-serif section-title">Choose your path</div>
           <div className="stack-md mt-3">
             <select className="btn btn-outline w-full" value={pathChoice} onChange={(e) => setPathChoice(e.target.value)}>
-              {Object.keys(SPECIALIZATIONS).map((path) => (
-                <option key={path} value={path}>{path}</option>
-              ))}
+              {Object.keys(SPECIALIZATIONS).map((path) => <option key={path} value={path}>{path}</option>)}
             </select>
-
             <div className="subtle-box">
               <div className="row align-center">
-                <div className="icon-pill" style={{ background: BRAND.gulf }}>
-                  {React.createElement(SPECIALIZATIONS[pathChoice].icon, { size: 24 })}
-                </div>
+                <div className="icon-pill" style={{ background: BRAND.gulf }}>{React.createElement(SPECIALIZATIONS[pathChoice].icon, { size: 24 })}</div>
                 <div className="heading-serif text-xl font-semibold" style={{ color: BRAND.gulf }}>{pathChoice}</div>
               </div>
               <p className="mt-3 text-sm text-muted">{SPECIALIZATIONS[pathChoice].description}</p>
-              <div className="row-wrap mt-3">
-                {SPECIALIZATIONS[pathChoice].designationOptions.map((d) => (
-                  <span key={d} className="badge badge-red">{d}</span>
-                ))}
-              </div>
+              <div className="row-wrap mt-3">{SPECIALIZATIONS[pathChoice].designationOptions.map((d) => <span key={d} className="badge badge-red">{d}</span>)}</div>
             </div>
-
             <div className="two-grid">
-              <div className="subtle-box" style={{ background: BRAND.white }}>
-                <div className="text-sm text-muted">Starting cash</div>
-                <div className="text-lg font-semibold mt-1" style={{ color: BRAND.gulf }}>{formatMoney(SPECIALIZATIONS[pathChoice].cash)}</div>
-              </div>
-              <div className="subtle-box" style={{ background: BRAND.white }}>
-                <div className="text-sm text-muted">Average deal size</div>
-                <div className="text-lg font-semibold mt-1" style={{ color: BRAND.gulf }}>{formatMoney(SPECIALIZATIONS[pathChoice].avgDeal)}</div>
-              </div>
+              <div className="subtle-box" style={{ background: BRAND.white }}><div className="text-sm text-muted">Starting cash</div><div className="text-lg font-semibold mt-1" style={{ color: BRAND.gulf }}>{formatMoney(SPECIALIZATIONS[pathChoice].cash)}</div></div>
+              <div className="subtle-box" style={{ background: BRAND.white }}><div className="text-sm text-muted">Average deal size</div><div className="text-lg font-semibold mt-1" style={{ color: BRAND.gulf }}>{formatMoney(SPECIALIZATIONS[pathChoice].avgDeal)}</div></div>
             </div>
-
             <button className="btn btn-primary" onClick={startGame}>start game</button>
           </div>
         </div>
-
         <div className="card card-pad">
           <div className="heading-serif section-title">How the sim works</div>
           <div className="stack-md mt-3 text-sm text-muted">
@@ -1092,20 +795,8 @@ export default function App() {
 
   const renderTabs = () => (
     <div className="tabs-wrap">
-      {[
-        ["actions", "actions"],
-        ["leads", "leads"],
-        ["learn", "learn"],
-        ["career", "career"],
-        ["awards", "awards"],
-      ].map(([key, label]) => (
-        <button
-          key={key}
-          className={`tab-btn ${activeTab === key ? "active" : ""}`}
-          onClick={() => setActiveTab(key)}
-        >
-          {label}
-        </button>
+      {[["actions", "actions"], ["leads", "leads"], ["learn", "learn"], ["career", "career"], ["awards", "awards"]].map(([key, label]) => (
+        <button key={key} className={`tab-btn ${activeTab === key ? "active" : ""}`} onClick={() => setActiveTab(key)}>{label}</button>
       ))}
     </div>
   );
@@ -1120,14 +811,8 @@ export default function App() {
         <button className="btn btn-outline" disabled={state.actionsLeft <= 0 || !state.cidMember || state.subsidyUsed || gameOver || Boolean(lossState)} onClick={applySubsidy}>apply for $150 subsidy</button>
         <button className="btn btn-outline" disabled={state.actionsLeft <= 0 || !state.cidMember || state.scholarshipUsed || gameOver || Boolean(lossState)} onClick={applyScholarship}>apply for $1,500 scholarship</button>
       </div>
-      <div className="subtle-box mt-3 text-sm text-muted">
-        You get 2 actions per month. Join CID to unlock education funding. When you use both actions, end the month to advance the market and age your pipeline.
-      </div>
-      <div className="mt-3">
-        <button className="btn btn-outline w-full" disabled={state.actionsLeft > 0 || gameOver || Boolean(lossState)} onClick={endMonth}>
-          {gameOver ? "year complete" : "end month"}
-        </button>
-      </div>
+      <div className="subtle-box mt-3 text-sm text-muted">You get 2 actions per month. Join CID to unlock education funding. When you use both actions, end the month to advance the market and age your pipeline.</div>
+      <div className="mt-3"><button className="btn btn-outline w-full" disabled={state.actionsLeft > 0 || gameOver || Boolean(lossState)} onClick={endMonth}>{gameOver ? "year complete" : "end month"}</button></div>
     </div>
   );
 
@@ -1135,37 +820,31 @@ export default function App() {
     <div className="card card-pad">
       <div className="heading-serif section-title">Active leads</div>
       <div className="panel-stack mt-3">
-        {state.leads.length === 0 ? (
-          <div className="subtle-box text-sm text-muted">No active leads yet. Time to meet people, make calls, and become professionally annoying in a strategic way.</div>
-        ) : (
-          state.leads.map((deal) => {
-            const chance = successChanceForDeal(deal, state);
-            return (
-              <div key={deal.id} className="subtle-box" style={{ background: BRAND.white }}>
-                <div className="row-between">
-                  <div className="stack-sm">
-                    <div className="row-wrap align-center">
-                      <div className="heading-serif font-semibold" style={{ color: BRAND.gulf }}>{deal.client}</div>
-                      <span className="badge badge-teal">{deal.path}</span>
-                      <span className="badge badge-silver">{deal.type}</span>
-                    </div>
-                    <div className="text-sm text-muted">{deal.summary}</div>
-                    <div className="detail-grid text-sm text-muted mt-2">
-                      <div>Deal value: <span className="text-strong">{formatMoney(deal.value)}</span></div>
-                      <div>Your credit: <span className="text-strong">{formatMoney(deal.creditValue)}</span></div>
-                      <div>Representation: <span className="text-strong">{deal.side}</span></div>
-                      <div>Submarket: <span className="text-strong">{deal.submarket}</span></div>
-                      <div>Estimated close chance: <span className="text-strong">{chance}%</span></div>
-                    </div>
+        {state.leads.length === 0 ? <div className="subtle-box text-sm text-muted">No active leads yet. Time to meet people, make calls, and become professionally annoying in a strategic way.</div> : state.leads.map((deal) => {
+          const chance = successChanceForDeal(deal, state);
+          return (
+            <div key={deal.id} className="subtle-box" style={{ background: BRAND.white }}>
+              <div className="row-between">
+                <div className="stack-sm">
+                  <div className="row-wrap align-center">
+                    <div className="heading-serif font-semibold" style={{ color: BRAND.gulf }}>{deal.client}</div>
+                    <span className="badge badge-teal">{deal.path}</span>
+                    <span className="badge badge-silver">{deal.type}</span>
                   </div>
-                  <div>
-                    <button className="btn btn-primary" disabled={state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => workLead(deal)}>negotiate deal</button>
+                  <div className="text-sm text-muted">{deal.summary}</div>
+                  <div className="detail-grid text-sm text-muted mt-2">
+                    <div>Deal value: <span className="text-strong">{formatMoney(deal.value)}</span></div>
+                    <div>Your credit: <span className="text-strong">{formatMoney(deal.creditValue)}</span></div>
+                    <div>Representation: <span className="text-strong">{deal.side}</span></div>
+                    <div>Submarket: <span className="text-strong">{deal.submarket}</span></div>
+                    <div>Estimated close chance: <span className="text-strong">{chance}%</span></div>
                   </div>
                 </div>
+                <div><button className="btn btn-primary" disabled={state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => workLead(deal)}>negotiate deal</button></div>
               </div>
-            );
-          })
-        )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -1188,10 +867,8 @@ export default function App() {
                   <div className="text-sm" style={{ color: BRAND.teal }}>Bonus: {concept.bonus}</div>
                 </div>
                 <div className="row-wrap">
-                  <button className="btn btn-outline" onClick={() => setHoverTerm({ name: concept.name, description: concept.description, bonus: concept.bonus })}>details</button>
-                  <button className={`btn ${learned ? "btn-muted" : "btn-primary"}`} disabled={learned || state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => learnConcept(concept)}>
-                    {learned ? "completed" : concept.cost === 0 ? "learn" : `learn for ${formatMoney(concept.cost)}`}
-                  </button>
+                  <button className="btn btn-outline" onClick={() => setTermPopup({ name: concept.name, description: concept.description, bonus: concept.bonus })}>details</button>
+                  <button className={`btn ${learned ? "btn-muted" : "btn-primary"}`} disabled={learned || state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => learnConcept(concept)}>{learned ? "completed" : concept.cost === 0 ? "learn" : `learn for ${formatMoney(concept.cost)}`}</button>
                 </div>
               </div>
             </div>
@@ -1204,9 +881,7 @@ export default function App() {
   const renderCareer = () => (
     <div className="card card-pad">
       <div className="heading-serif section-title">Designations and career growth</div>
-      <div className="subtle-box mt-3 text-sm text-muted">
-        CID membership status: <span className="text-strong">{state.cidMember ? "active" : "not joined"}</span>
-      </div>
+      <div className="subtle-box mt-3 text-sm text-muted">CID membership status: <span className="text-strong">{state.cidMember ? "active" : "not joined"}</span></div>
       <div className="panel-stack mt-3">
         {SPECIALIZATIONS[state.path].designationOptions.map((name) => {
           const d = DESIGNATIONS[name];
@@ -1222,11 +897,7 @@ export default function App() {
                   <div className="text-sm text-muted">{d.description}</div>
                   <div className="text-sm" style={{ color: BRAND.teal }}>Cost: {formatMoney(d.cost)}</div>
                 </div>
-                <div>
-                  <button className={`btn ${owned ? "btn-muted" : "btn-secondary"}`} disabled={owned || state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => buyDesignation(name)}>
-                    {owned ? "owned" : `pursue ${name}`}
-                  </button>
-                </div>
+                <div><button className={`btn ${owned ? "btn-muted" : "btn-secondary"}`} disabled={owned || state.actionsLeft <= 0 || gameOver || Boolean(lossState)} onClick={() => buyDesignation(name)}>{owned ? "owned" : `pursue ${name}`}</button></div>
               </div>
             </div>
           );
@@ -1238,9 +909,7 @@ export default function App() {
   const renderAwards = () => (
     <div className="card card-pad">
       <div className="heading-serif section-title">CID awards tracking</div>
-      <div className="subtle-box mt-3 text-sm text-muted">
-        Achievement Awards unlock at $2,000,000+ in annual credit volume. Category tracking below reflects your current standing by asset class for Commercial Agent of the Year, Sale of the Year, and Lease of the Year logic.
-      </div>
+      <div className="subtle-box mt-3 text-sm text-muted">Achievement Awards unlock at $2,000,000+ in annual credit volume. Category tracking below reflects your current standing by asset class for Commercial Agent of the Year, Sale of the Year, and Lease of the Year logic.</div>
       <div className="panel-stack mt-3">
         {awardSummary.map((row) => (
           <div key={row.asset} className="subtle-box" style={{ background: BRAND.white }}>
@@ -1256,15 +925,7 @@ export default function App() {
     </div>
   );
 
-  if (!started) {
-    return (
-      <>
-        <style>{STYLES}</style>
-        <div className="app-shell">{renderStart()}</div>
-      </>
-    );
-  }
-
+  if (!started) return <><style>{STYLES}</style><div className="app-shell">{renderStart()}</div></>;
   if (!state) return null;
 
   return (
@@ -1276,24 +937,15 @@ export default function App() {
             <div className="row-between align-center">
               <div>
                 <div className="kicker">CID career simulator</div>
-                <h1 className="heading-serif text-4xl font-semibold" style={{ color: BRAND.gulf, margin: "8px 0 0 0" }}>
-                  Deal Flow: New Orleans Commercial Real Estate
-                </h1>
-                <p className="mt-2 text-muted">
-                  Month {Math.min(state.month, 12)} of 12 • Path: <span className="text-strong">{state.path}</span> • Actions left this month: <span className="text-strong">{Math.max(state.actionsLeft, 0)}</span>
-                </p>
+                <h1 className="heading-serif text-4xl font-semibold" style={{ color: BRAND.gulf, margin: "8px 0 0 0" }}>Deal Flow: New Orleans Commercial Real Estate</h1>
+                <p className="mt-2 text-muted">Month {Math.min(state.month, 12)} of 12 • Path: <span className="text-strong">{state.path}</span> • Actions left this month: <span className="text-strong">{Math.max(state.actionsLeft, 0)}</span></p>
               </div>
               <div className="row-wrap">
-                {awardTier ? (
-                  <span className="badge badge-red">CID Achievement Tier: {awardTier}</span>
-                ) : (
-                  <span className="badge badge-silver">CID Awards eligibility locked</span>
-                )}
+                {awardTier ? <span className="badge badge-red">CID Achievement Tier: {awardTier}</span> : <span className="badge badge-silver">CID Awards eligibility locked</span>}
                 <button className="btn btn-outline" onClick={reset}>new game</button>
               </div>
             </div>
           </div>
-
           <div className="stats-grid">
             <Stat label="Cash" value={state.cash} icon={DollarSign} money />
             <Stat label="Annual income" value={state.annualIncome} icon={DollarSign} money />
@@ -1301,19 +953,13 @@ export default function App() {
             <Stat label="Reputation" value={state.reputation} icon={Users} />
             <Stat label="Knowledge" value={state.knowledge} icon={GraduationCap} />
           </div>
-
           <div className="content-grid">
             <div className="stack-lg">
               <div className="card card-pad">
                 <div className="heading-serif section-title">Progress toward CID Awards eligibility</div>
-                <div className="mt-3 text-sm text-muted">
-                  {state.totalCredit >= 2000000
-                    ? `You crossed the $2,000,000 threshold. Current tier: ${awardTier}.`
-                    : `${formatMoney(2000000 - state.totalCredit)} in additional credit needed to reach Bronze eligibility.`}
-                </div>
+                <div className="mt-3 text-sm text-muted">{state.totalCredit >= 2000000 ? `You crossed the $2,000,000 threshold. Current tier: ${awardTier}.` : `${formatMoney(2000000 - state.totalCredit)} in additional credit needed to reach Bronze eligibility.`}</div>
                 <ProgressBar value={(state.totalCredit / 2000000) * 100} color={BRAND.red} />
               </div>
-
               {renderTabs()}
               {activeTab === "actions" && renderActions()}
               {activeTab === "leads" && renderLeads()}
@@ -1321,107 +967,62 @@ export default function App() {
               {activeTab === "career" && renderCareer()}
               {activeTab === "awards" && renderAwards()}
             </div>
-
             <div className="stack-lg">
               <div className="card card-pad">
                 <div className="heading-serif section-title">Production by asset class</div>
                 <div className="panel-stack mt-3">
                   {Object.keys(state.creditByClass).map((k) => (
                     <div key={k}>
-                      <div className="row-between text-sm text-muted">
-                        <span>{k}</span>
-                        <span className="text-strong">{formatMoney(state.creditByClass[k])}</span>
-                      </div>
+                      <div className="row-between text-sm text-muted"><span>{k}</span><span className="text-strong">{formatMoney(state.creditByClass[k])}</span></div>
                       <ProgressBar value={state.totalCredit > 0 ? (state.creditByClass[k] / state.totalCredit) * 100 : 0} color={BRAND.teal} />
                     </div>
                   ))}
                 </div>
               </div>
-
               <div className="card card-pad">
                 <div className="heading-serif section-title">Closed deals</div>
                 <div className="scroll-box mt-3 panel-stack">
-                  {state.dealsClosed.length === 0 ? (
-                    <div className="subtle-box text-sm text-muted">No closings yet. A humbling but temporary condition.</div>
-                  ) : (
-                    [...state.dealsClosed].reverse().map((deal) => (
-                      <div key={deal.id} className="subtle-box" style={{ background: BRAND.white }}>
-                        <div className="row-between align-center">
-                          <div className="font-semibold" style={{ color: BRAND.gulf }}>{deal.type} • {deal.path}</div>
-                          <span className="badge badge-teal">month {deal.monthClosed}</span>
-                        </div>
-                        <div className="mt-2 text-sm text-muted">{deal.client} • {deal.submarket}</div>
-                        <div className="detail-grid text-sm text-muted mt-2">
-                          <div>Value: <span className="text-strong">{formatMoney(deal.value)}</span></div>
-                          <div>Credit: <span className="text-strong">{formatMoney(deal.credit)}</span></div>
-                          <div>Income: <span className="text-strong">{formatMoney(deal.income)}</span></div>
-                          <div>Share: <span className="text-strong">{Math.round(deal.yourShare * 100)}%</span></div>
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-
-              <div className="card card-pad">
-                <div className="heading-serif section-title">Market log</div>
-                <div className="scroll-box mt-3 panel-stack">
-                  {state.log.map((entry, i) => (
-                    <div key={i} className="subtle-box text-sm text-muted">
-                      <div className="row">
-                        <FileText size={16} color={BRAND.teal} style={{ marginTop: 3, flexShrink: 0 }} />
-                        <span>{entry}</span>
+                  {state.dealsClosed.length === 0 ? <div className="subtle-box text-sm text-muted">No closings yet. A humbling but temporary condition.</div> : [...state.dealsClosed].reverse().map((deal) => (
+                    <div key={deal.id} className="subtle-box" style={{ background: BRAND.white }}>
+                      <div className="row-between align-center"><div className="font-semibold" style={{ color: BRAND.gulf }}>{deal.type} • {deal.path}</div><span className="badge badge-teal">month {deal.monthClosed}</span></div>
+                      <div className="mt-2 text-sm text-muted">{deal.client} • {deal.submarket}</div>
+                      <div className="detail-grid text-sm text-muted mt-2">
+                        <div>Value: <span className="text-strong">{formatMoney(deal.value)}</span></div>
+                        <div>Credit: <span className="text-strong">{formatMoney(deal.credit)}</span></div>
+                        <div>Income: <span className="text-strong">{formatMoney(deal.income)}</span></div>
+                        <div>Share: <span className="text-strong">{Math.round(deal.yourShare * 100)}%</span></div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
+              <div className="card card-pad">
+                <div className="heading-serif section-title">Market log</div>
+                <div className="scroll-box mt-3 panel-stack">
+                  {state.log.map((entry, i) => (
+                    <div key={i} className="subtle-box text-sm text-muted">
+                      <div className="row"><FileText size={16} color={BRAND.teal} style={{ marginTop: 3, flexShrink: 0 }} /><span>{entry}</span></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
               {activeNegotiation && (
                 <div className="card card-pad negotiation-card">
                   <div className="heading-serif section-title">Negotiation in progress</div>
-                  <div className="mt-3 text-sm text-muted">
-                    <span className="text-strong">{activeNegotiation.client}</span> • {activeNegotiation.type} • {activeNegotiation.path} • {activeNegotiation.submarket}
-                  </div>
-                  <div className="mt-2 text-sm text-muted">
-                    Set your position on each issue, then choose a negotiation style. Closer alignment to the other side's priorities improves your odds.
-                  </div>
+                  <div className="mt-3 text-sm text-muted"><span className="text-strong">{activeNegotiation.client}</span> • {activeNegotiation.type} • {activeNegotiation.path} • {activeNegotiation.submarket}</div>
+                  <div className="mt-2 text-sm text-muted">Set your position on each issue, then choose a negotiation style. Closer alignment to the other side's priorities improves your odds.</div>
                   <div className="panel-stack mt-3">
                     {NEGOTIATION_SLIDERS.map(([key, label]) => (
                       <div key={key} className="subtle-box">
                         <div className="row-between align-center">
                           <div className="row align-center">
                             <span className="font-semibold" style={{ color: BRAND.gulf }}>{label}</span>
-                            <IconButton
-                              onClick={() =>
-                                setHoverTerm({
-                                  name: NEGOTIATION_TERMS[key].title,
-                                  description: NEGOTIATION_TERMS[key].text,
-                                  bonus: "Use this concept to make smarter tradeoffs in negotiations.",
-                                })
-                              }
-                            />
+                            <TooltipIcon termKey={key} />
                           </div>
                           <span className="text-xs text-muted">Your position: {negotiationChoices[key]}</span>
                         </div>
-                        <input
-                          className="range mt-2"
-                          type="range"
-                          min="0"
-                          max="100"
-                          value={negotiationChoices[key]}
-                          onChange={(e) =>
-                            setNegotiationChoices((prev) => ({
-                              ...prev,
-                              [key]: Number(e.target.value),
-                            }))
-                          }
-                        />
-                        <div className="row-between text-xs text-muted mt-2">
-                          <span>client-favorable</span>
-                          <span>balanced</span>
-                          <span>your side-favorable</span>
-                        </div>
+                        <input className="range mt-2" type="range" min="0" max="100" value={negotiationChoices[key]} onChange={(e) => setNegotiationChoices((prev) => ({ ...prev, [key]: Number(e.target.value) }))} />
+                        <div className="row-between text-xs text-muted mt-2"><span>client-favorable</span><span>balanced</span><span>your side-favorable</span></div>
                       </div>
                     ))}
                   </div>
@@ -1432,30 +1033,22 @@ export default function App() {
                   </div>
                 </div>
               )}
-
-              {hoverTerm && (
-                <div className="card card-pad term-card">
-                  <div className="heading-serif section-title">{hoverTerm.name}</div>
+              {termPopup && (
+                <div className="card card-pad summary-card">
+                  <div className="heading-serif section-title">{termPopup.name}</div>
                   <div className="stack-md mt-3 text-sm text-muted">
-                    <div>{hoverTerm.description}</div>
-                    <div style={{ color: BRAND.teal }}>{hoverTerm.bonus}</div>
-                    <div>
-                      <button className="btn btn-outline" onClick={() => setHoverTerm(null)}>close</button>
-                    </div>
+                    <div>{termPopup.description}</div>
+                    <div style={{ color: BRAND.teal }}>{termPopup.bonus}</div>
+                    <div><button className="btn btn-outline" onClick={() => setTermPopup(null)}>close</button></div>
                   </div>
                 </div>
               )}
-
               {lossState && (
                 <div className="card card-pad loss-card">
                   <div className="heading-serif section-title">Game over</div>
-                  <div className="stack-md mt-3 text-sm text-muted">
-                    <div>{lossState}</div>
-                    <div>You can restart and try a different specialization, pursue CID earlier, or invest in education faster.</div>
-                  </div>
+                  <div className="stack-md mt-3 text-sm text-muted"><div>{lossState}</div><div>You can restart and try a different specialization, pursue CID earlier, or invest in education faster.</div></div>
                 </div>
               )}
-
               {gameOver && (
                 <div className="card card-pad summary-card">
                   <div className="heading-serif section-title">Year-end summary</div>
