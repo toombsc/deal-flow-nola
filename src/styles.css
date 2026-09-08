@@ -445,3 +445,29 @@ input[type="range"] { width: 100%; accent-color: var(--teal); cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+.primer-trigger { display: grid; gap: 7px; text-align: left; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.primer-trigger > span { display: flex; align-items: center; gap: 4px; color: var(--teal, #137d78); font: 600 12px/1.4 sans-serif; }
+.primer-trigger:hover { color: var(--teal, #137d78); }
+.primer-trigger:focus-visible { outline: 2px solid #137d78; outline-offset: 5px; border-radius: 2px; }
+.primer-dialog { width: min(600px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid #d8dcd7; border-radius: 10px; background: var(--paper, #fffdf8); color: var(--navy, #13243b); box-shadow: 0 24px 80px #00102255; }
+.primer-dialog::backdrop { background: rgb(0 10 34 / 65%); backdrop-filter: blur(3px); }
+.primer-content { padding: 28px; }
+.primer-dialog h2 { margin: 14px 0 24px; font: 400 30px/1.15 Georgia, serif; }
+.primer-dialog h3 { font-size: 14px; margin: 0 0 8px; }
+.primer-dialog p { font-size: 14px; line-height: 1.7; }
+.primer-section { margin-bottom: 22px; }
+.primer-section p { margin: 0 0 10px; }
+.primer-sources { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 11px; line-height: 1.6; }
+.primer-sources a { color: #126c67; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.primer-sources svg { display: inline; margin-left: 5px; vertical-align: middle; }
+.primer-formula { padding: 14px; border-left: 3px solid #137d78; background: #edf4ef; font-weight: 600; }
+.primer-examples { display: grid; gap: 8px; font-size: 13px; }
+.primer-examples > div { display: grid; grid-template-columns: 110px 1fr; gap: 8px; }
+.primer-examples dt { font-weight: 600; }
+.primer-examples dd { margin: 0; }
+.primer-worked { margin: 24px 0; padding: 16px; border: 1px solid #d8dcd7; border-radius: 6px; }
+.primer-worked summary { cursor: pointer; font-weight: 600; font-size: 13px; line-height: 1.6; }
+.primer-game { border-top: 1px solid #d8dcd7; padding-top: 18px; margin-bottom: 20px; }
+.primer-game p { margin: 6px 0; }
+@media (max-width: 480px) { .primer-content { padding: 20px; } .primer-dialog h2 { font-size: 26px; } }
