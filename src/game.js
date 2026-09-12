@@ -322,9 +322,9 @@ export function getStyleModifiers(deal) {
     Institutional: { aggressive: 0, balanced: 10, conservative: 8 },
   }[deal.personality.name] || { aggressive: 2, balanced: 8, conservative: 5 };
   return {
-    aggressive: { label: "Push the economics", score: scores.aggressive, rep: -1, incomeMultiplier: 1.1, text: "10% more commission if you win; -1 reputation. Works best with an aggressive counterparty." },
-    balanced: { label: "Find common ground", score: scores.balanced, rep: 1, incomeMultiplier: 1, text: "Standard commission; +1 reputation. Strong with relationship-driven and institutional parties." },
-    conservative: { label: "Protect the relationship", score: scores.conservative, rep: 2, incomeMultiplier: 0.92, text: "8% less commission if you win; +2 reputation. Reassures cautious counterparties." },
+    aggressive: { label: "Push the economics", score: scores.aggressive, rep: -1, incomeMultiplier: 1.1, text: "10% more simulated commission if you win; -1 reputation. Works best with an aggressive counterparty." },
+    balanced: { label: "Find common ground", score: scores.balanced, rep: 1, incomeMultiplier: 1, text: "No adjustment to this deal’s simulated commission; +1 reputation. Strong with relationship-driven and institutional parties." },
+    conservative: { label: "Protect the relationship", score: scores.conservative, rep: 2, incomeMultiplier: 0.92, text: "8% less simulated commission if you win; +2 reputation. Reassures cautious counterparties." },
   };
 }
 
